@@ -1,0 +1,66 @@
+.container {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #000;
+  margin-top: 10px;
+}
+
+#table1 {
+  width: 100px;
+  line-height: 100px;
+  border: 1px solid #000;
+  position: relative;
+  margin: 5px 5px 5px 5px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#table2 {
+  width: 100px;
+  line-height: 100px;
+  border: 1px solid #000;
+  position: relative;
+  margin: 5px 5px 5px 5px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#table3 {
+  width: 100px;
+  line-height: 100px;
+  border: 1px solid #000;
+  position: relative;
+  margin: 5px 5px 5px 250px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#table4 {
+  width: 100px;
+  line-height: 100px;
+  border: 1px solid #000;
+  position: relative;
+  margin: 5px 5px 5px 360px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#table5 {
+  width: 100px;
+  line-height: 100px;
+  border: 1px solid #000;
+  position: relative;
+  margin: 5px 5px 5px 360px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#table6 {
+  width: 100px;
+  line-height: 100px;
+  border: 1px solid #000;
+  position: relative;
+  margin: -110px 5px 5px 360px;
+  text-align: center;
+  padding-bottom: 10px;
+}

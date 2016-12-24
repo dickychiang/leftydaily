@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = process.env | 3000;
 
+app.use(express.static('public'));
+
 // parse the engine to HTML
 app.engine('html', require('ejs').renderFile);
 
