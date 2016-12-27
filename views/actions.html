@@ -2,15 +2,29 @@
 <html>
   <title> LeftyDaily - Actions</title>
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
   <body>
-    <h1> 您選擇了 ： <%= table %></h1>
-    <h2> 請執行下列動作或返回</h2>
-    <div class="row">
-      <button class="col-md-4 btn">新增</button>
-      <button class="col-md-4 btn">補單</button>
-      <button class="col-md-4 btn">結帳</button>
-      <button class="col-md-4 btn" onclick="window.location.assign('/')">返回</button>
+    <div class="container">
+      <h1> 您選擇了 ： <%= table %></h1>
+      <h2> 請執行下列動作或返回</h2>
+      <div class="row">
+        <button class="col-md-4 btn" id="new" onclick="add_order();">新增</button>
+        <button class="col-md-4 btn" id="add">補單</button>
+        <button class="col-md-4 btn" id="check">結帳</button>
+        <button class="col-md-4 btn" onclick="window.location.assign('/')">返回</button>
+      </div>
     </div>
   </body>
+
+  <script src="../js/action.js"></script>
+
+  <script>
+
+  var num = <%- JSON.stringify(table) %>;
+
+  order_table = num;
+  </script>
+
 
 </html>

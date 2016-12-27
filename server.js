@@ -28,6 +28,7 @@ app.get('/', function(req, res){
 app.get('/actions', function(req, res){
   console.log(req.query.table);
   var data = req.query.table;
+//  res.set('Content-Type', 'application/javascript');    
   res.render('actions.html', {table:data});
 });
 
