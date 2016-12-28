@@ -1,20 +1,22 @@
-var buttons = document.getElementsByTagName('button');
-var buttonsCount = buttons.length;
-var selected_table = null;
+var Total = 7;
 
-for (var i = 0; i < buttonsCount; i++) {
-  buttons[i].onclick =  function(e) {
+for(var i = 1; i < Total; i++) {
+  var t = "table" + i;
+  document.getElementById(t).addEventListener('click', function(){
     selected_table = this.id;
-    action(selected_table);
-  };
+    console.log("table = " + selected_table);
+  });
 }
 
-function action(table) {
+document.getElementById('new').addEventListener('click', function(){
 
-  console.log("call action");
+  console.log("call render_orderpage");
 
-  var url = "http://localhost:3000/actions?table=" + table;
+  selected_table = selected_table.replace("table", "");
+
+  console.log("table = " + selected_table);
+
+  var url = "http://localhost:3000/actions?table=" + selected_table;
 
   window.location.replace(url);
-
-}
+});

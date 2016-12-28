@@ -2,38 +2,63 @@
 <html>
 <head>
   <title> Lefty Daily </title>
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
   <body>
+    <h2 style="text-align:center"> Lefty Daily Order System</h2>
     <div class="container">
       <div class="row">
-        <button class="col-sm-6 btn" id="table1">Table 1</button>
-        <button class="col-sm-6 btn" id="table3">Table 3</button>
+        <button type="button" class="col-sm-6 btn btn-info btn-lg" id="table1" data-toggle="modal" data-target="#myModal">Table 1</button>
+        <button type="button" class="col-sm-6 btn btn-info btn-lg" id="table3" data-toggle="modal" data-target="#myModal">Table 3</button>
       </div>
       <div class="row">
         <div class="col-sm-6 btn" ></div>
-        <button class="col-sm-6 btn" id="table4">Table 4</button>
+        <button type="button" class="col-sm-6 btn btn-info btn-lg" id="table4" data-toggle="modal" data-target="#myModal">Table 4</button>
       </div>
       <div class="row">
         <div class="col-sm-6 btn" ></div>
-        <button class="col-sm-6 btn" id="table5">Table 5</button>
+        <button type="button" class="col-sm-6 btn btn-info btn-lg" id="table5" data-toggle="modal" data-target="#myModal">Table 5</button>
       </div>
       <div class="row">
-        <button class="col-sm-6 btn" id="table2">Table 2</button>
-        <button class="col-sm-6 btn" id="table6">Table 6</button>
+        <button type="button" class="col-sm-6 btn btn-info btn-lg" id="table2" data-toggle="modal" data-target="#myModal">Table 2</button>
+        <button type="button" class="col-sm-6 btn btn-info btn-lg" id="table6" data-toggle="modal" data-target="#myModal">Table 6</button>
       </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm" style="text-align:center">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                  <button class="col-md-4 btn" id="new">新增</button>
+                  <button class="col-md-4 btn" id="add">補單</button>
+                  <button class="col-md-4 btn" id="check">結帳</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </body>
 
-  <script src="../js/main.js">
-
-
-  </script>
+  <script src="../js/main.js"></script>
 
 </html>

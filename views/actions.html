@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <title> LeftyDaily - Actions</title>
+  <title> LeftyDaily - Order</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
   <body>
     <div class="container">
-      <h1> 您選擇了 ： <%= table %></h1>
-      <h2> 請執行下列動作或返回</h2>
-      <div class="row">
-        <button class="col-md-4 btn" id="new" onclick="add_order();">新增</button>
-        <button class="col-md-4 btn" id="add">補單</button>
-        <button class="col-md-4 btn" id="check">結帳</button>
-        <button class="col-md-4 btn" onclick="window.location.assign('/')">返回</button>
-      </div>
+      <form action="" method="post">
+        <h4>桌號 : <%= table %></h4>
+
+        <h2>Coffee</h2>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="latte" id="latte">
+            拿鐵
+          </label>
+        </div>
+
+        <h2>Tea</h2>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="blacktea" id="blacktea">
+            極地紅茶
+          </label>
+        </div>
+
+        <h2>Sweet</h2>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="" id="croissants">
+            可頌
+          </label>
+        </div>
+
+        <p style="margin-top: 5%"> 金額 :  <samp id="price"> 0 </samp></p>
+
+        <button type="submit" class="btn btn-default" style="margin-top:5%">提交訂單</button>
+      </form>
     </div>
   </body>
 
   <script src="../js/action.js"></script>
 
   <script>
-
   var num = <%- JSON.stringify(table) %>;
-
-  order_table = num;
   </script>
-
 
 </html>

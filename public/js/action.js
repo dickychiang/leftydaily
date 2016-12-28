@@ -1,70 +1,64 @@
-var order_table;
-
-function add_order() {
-
-  console.log("call add_order");
-
-  console.log(order_table);
-
-  var order = document.createElement('form');
-
-  // set table number
-  var tn = document.createElement('div');
-  tn.setAttribute('class', 'form-group');
-
-  var tn_input = document.createElement('input');
-  tn_input.type = "text";
-  tn_input.setAttribute('class', 'form-control');
-  tn_input.setAttribute('id', 'table-number');
-  tn_input.value = order_table;
-
-  var tn_label = document.createElement('label');
-  tn_label.setAttribute('for', 'table-number');
-  tn_label.innerHTML = '桌號';
-
-  tn.appendChild(tn_label);
-  tn.appendChild(tn_input);
-
-  // set items
-  var coffees = document.createElement('div');
-  coffees.setAttribute('class', 'checkbox');
+var latte_price = 120;
+var blacktea_price = 90;
+var croissants_price = 80;
 
 
-  var latte_text = document.createTextNode('拿鐵');
-  var latte = document.createElement('input');
-  latte.type =  "checkbox";
-  latte.id = "latte";
+document.getElementById('latte').addEventListener('change', function(){
 
-  var latte_label = document.createElement('label');
-  latte_label.setAttribute('class', 'checkbox-inline');
+  console.log(this.name);
 
-  var cappuccino_text = document.createTextNode('卡布基諾');
-  var cappuccino = document.createElement('input');
-  cappuccino.type =  "checkbox";
-  cappuccino.id = "cappuccino";
+  var output = document.getElementById('price');
+  var price = parseInt(output.innerText);
 
-  var cappuccino_label = document.createElement('label');
-  cappuccino_label.setAttribute('class', 'checkbox-inline');
+  if(!document.getElementById('latte').checked) {
+    if(price != 0) {
+      price = price - latte_price;
+    } else {
+      price = 0;
+    }
+  } else {
+    price = price + latte_price;
+  }
 
-  latte_label.appendChild(latte);
-  latte_label.appendChild(latte_text);
-  cappuccino_label.appendChild(cappuccino);
-  cappuccino_label.appendChild(cappuccino_text);
+  output.innerText = parseInt(price);
+});
 
-  coffees.appendChild(latte_label);
-  coffees.appendChild(cappuccino_label);
-  
-  // submit
-  var submit = document.createElement('button');
-  submit.type = submit;
-  submit.setAttribute('class', 'btn btn-default');
-  submit.innerHTML = "提交定單";
+document.getElementById('blacktea').addEventListener('change', function(){
 
-  // output
-  order.appendChild(tn);
-  order.appendChild(coffees);
-  order.appendChild(submit);
+  console.log(this.name);
 
-  document.body.appendChild(order);
+  var output = document.getElementById('price');
+  var price = parseInt(output.innerText);
 
-}
+  if(!document.getElementById('blacktea').checked) {
+    if(price != 0) {
+      price = price - blacktea_price;
+    } else {
+      price = 0;
+    }
+  } else {
+    price = price + blacktea_price;
+  }
+
+  output.innerText = parseInt(price);
+});
+
+document.getElementById('croissants').addEventListener('change', function(){
+
+  console.log(this.name);
+
+  var output = document.getElementById('price');
+  var price = parseInt(output.innerText);
+
+  if(!document.getElementById('croissants').checked) {
+    if(price != 0) {
+      price = price - croissants_price;
+    } else {
+      price = 0;
+    }
+  } else {
+    price = price + croissants_price;
+  }
+
+  output.innerText = parseInt(price);
+});
