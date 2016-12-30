@@ -1,64 +1,33 @@
-var latte_price = 120;
-var blacktea_price = 90;
-var croissants_price = 80;
+var OrderItems = {};
 
+var ip = "192.168.1.4";
+var port = "3000";
 
-document.getElementById('latte').addEventListener('change', function(){
+var socket = io.connect('http://' + ip + ':' + port);
 
-  console.log(this.name);
-
-  var output = document.getElementById('price');
-  var price = parseInt(output.innerText);
-
-  if(!document.getElementById('latte').checked) {
-    if(price != 0) {
-      price = price - latte_price;
-    } else {
-      price = 0;
-    }
-  } else {
-    price = price + latte_price;
-  }
-
-  output.innerText = parseInt(price);
+socket.on('rep_con', function(msg) {
+    // alert(msg);
+    console.log(msg);
 });
 
-document.getElementById('blacktea').addEventListener('change', function(){
+document.getElementById('order_form').addEventListener('click', function() {
 
-  console.log(this.name);
+    var form = document.getElementById('order_form');
 
-  var output = document.getElementById('price');
-  var price = parseInt(output.innerText);
+    for (var i = 0; i < form.length; i++) {
+        var s = form[i].value;
+        s = s.split(',');
 
-  if(!document.getElementById('blacktea').checked) {
-    if(price != 0) {
-      price = price - blacktea_price;
-    } else {
-      price = 0;
+        if (form[i].checked === true) {
+            OrderItems[s[0]] = s[1];
+
+        } else {
+            delete OrderItems[s[0]];
+        }
     }
-  } else {
-    price = price + blacktea_price;
-  }
-
-  output.innerText = parseInt(price);
+    console.log(OrderItems);
 });
 
-document.getElementById('croissants').addEventListener('change', function(){
-
-  console.log(this.name);
-
-  var output = document.getElementById('price');
-  var price = parseInt(output.innerText);
-
-  if(!document.getElementById('croissants').checked) {
-    if(price != 0) {
-      price = price - croissants_price;
-    } else {
-      price = 0;
-    }
-  } else {
-    price = price + croissants_price;
-  }
-
-  output.innerText = parseInt(price);
+document.getElementById('submit').addEventListener('click', function() {
+    socket.emit('order', OrderItems);
 });

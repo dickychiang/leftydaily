@@ -36,7 +36,19 @@ app.get('/actions', function(req, res){
   res.render('actions.html', {table:data});
 });
 
-
 server.listen(port, function(){
 	console.log('Express started on http://localhost:' + port);
+});
+
+io.on('connection', function(socket){
+
+  console.log("connect to client side");
+
+  socket.emit('rep_con', "connecting sucessfully");
+
+  socket.on('order', function(data) {
+    console.log("receive order data");
+    console.log(data);
+  });
+
 });

@@ -11,13 +11,13 @@
 
   <body>
     <div class="container">
-      <form action="" method="post">
+      <form id="order_form">
         <h4>桌號 : <%= table %></h4>
 
         <h2>Coffee</h2>
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="latte" id="latte">
+            <input class="form-check-input" type="checkbox" name="latte" value="latte,120" id="latte">
             拿鐵
           </label>
         </div>
@@ -25,7 +25,7 @@
         <h2>Tea</h2>
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="blacktea" id="blacktea">
+            <input class="form-check-input" type="checkbox" name="blacktea" value="blacktea,90" id="blacktea">
             極地紅茶
           </label>
         </div>
@@ -33,22 +33,23 @@
         <h2>Sweet</h2>
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" value="" id="croissants">
+            <input class="form-check-input" type="checkbox" name="croissants" value="croissants,80" id="croissants">
             可頌
           </label>
         </div>
 
         <p style="margin-top: 5%"> 金額 :  <samp id="price"> 0 </samp></p>
 
-        <button type="submit" class="btn btn-default" style="margin-top:5%">提交訂單</button>
+        <button type="submit" class="btn btn-default" style="margin-top:5%" id="submit">提交訂單</button>
       </form>
     </div>
   </body>
 
+  <script src="../js/box_checked.js"></script>
   <script src="../js/action.js"></script>
 
   <script>
-  var num = <%- JSON.stringify(table) %>;
+  //var num = <%- JSON.stringify(table) %>;
   </script>
 
 </html>
