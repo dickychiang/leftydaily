@@ -1,4 +1,5 @@
 var OrderItems = {};
+var totalItems = {};
 
 var ip = "192.168.1.4";
 var port = "3000";
@@ -19,15 +20,35 @@ document.getElementById('order_form').addEventListener('click', function() {
         s = s.split(',');
 
         if (form[i].checked === true) {
-            OrderItems[s[0]] = s[1];
+            //OrderItems[s[0]] = s[1];
+            totalItems[s[0]] = s[1];
 
         } else {
-            delete OrderItems[s[0]];
+          //  delete OrderItems[s[0]];
+          delete totalItems[s[0]];
         }
     }
-    console.log(OrderItems);
+    console.log(totalItems);
 });
 
 document.getElementById('submit').addEventListener('click', function() {
+    var total = document.getElementById('price').innerText;
+
+    OrderItems.money = total;
+    OrderItems.date = Date();
+    OrderItems.status = false;
+    OrderItems.table = num;
+    OrderItems.items = totalItems;
     socket.emit('order', OrderItems);
+
+      socket.on('feedback', function(msg) {
+        console.log(msg);
+        //alert(msg);
+        //document.getElementById('submit_msg').innerText = msg;
+        //$('#myModal').modal('show');
+        alert(msg);
+        window.location.assign("/");
+      });
+
+
 });
