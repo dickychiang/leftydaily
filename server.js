@@ -39,6 +39,16 @@ app.get('/actions', function(req, res) {
     });
 });
 
+app.get('/checkout', function(req, res) {
+    console.log(req.query.table);
+    var data = req.query.table;
+    //  res.set('Content-Type', 'application/javascript');
+    res.render('checkout.html', {
+        table: data
+    });
+});
+
+
 server.listen(port, function() {
     console.log('Express started on http://localhost:' + port);
 });
@@ -58,9 +68,37 @@ io.on('connection', function(socket) {
             console.log("data stored successful");
         });
     });
+
+    socket.on('getinfo', function(data) {
+
+      console.log('get info');
+
+      console.log(data);
+
+      var db = new sqlite3.Database('testDB.db');
+
+      var rowData = {};
+
+      var query = 'SELECT * FROM LD_ORDER WHERE tables = ' + data;
+      //var query = "SELECT * FROM LD_ORDER";
+
+      console.log(query);
+
+      db.serialize(function(){
+
+        db.each(query, function(err, row) {
+          //  console.log(row.id + ": " + row.dates);
+          //  rowData = row;
+            console.log(row);
+          //  console.log(row.length);
+            socket.emit('table_data', row);
+        });
+      });
+      db.close();
+    });
 });
 
-function write(data, callback) {
+var write = function(data, callback) {
     console.log("call write data to database");
 
     var db = new sqlite3.Database('testDB.db');

@@ -1,7 +1,7 @@
 var OrderItems = {};
 var totalItems = {};
 
-var ip = "192.168.1.4";
+var ip = "192.168.0.27";
 var port = "3000";
 
 var socket = io.connect('http://' + ip + ':' + port);

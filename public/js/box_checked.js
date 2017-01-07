@@ -1,7 +1,19 @@
 var items = {
-    'latte': 120,
-    'blacktea': 90,
+  'coffee': {
+    'latte' : 120
+  },
+  'tea': {
+    'blacktea': 90
+  },
+  'pourcoffee': {
+
+  },
+  'sweet': {
     'croissants': 80
+  },
+  'food': {
+
+  }
 };
 
 document.getElementById('latte').addEventListener('change', function(){
@@ -13,12 +25,12 @@ document.getElementById('latte').addEventListener('change', function(){
 
   if(!document.getElementById('latte').checked) {
     if(price != 0) {
-      price = price - items['latte'];
+      price = price - items.coffee['latte'];
     } else {
       price = 0;
     }
   } else {
-    price = price + items['latte'];
+    price = price + items.coffee['latte'];
   }
 
   output.innerText = parseInt(price);
@@ -33,12 +45,12 @@ document.getElementById('blacktea').addEventListener('change', function(){
 
   if(!document.getElementById('blacktea').checked) {
     if(price != 0) {
-      price = price - items['blacktea'];
+      price = price - items.tea['blacktea'];
     } else {
       price = 0;
     }
   } else {
-    price = price + items['blacktea'];
+    price = price + items.tea['blacktea'];
   }
 
   output.innerText = parseInt(price);
@@ -53,12 +65,12 @@ document.getElementById('croissants').addEventListener('change', function(){
 
   if(!document.getElementById('croissants').checked) {
     if(price != 0) {
-      price = price - items['croissants'];
+      price = price - items.sweet['croissants'];
     } else {
       price = 0;
     }
   } else {
-    price = price + items['croissants'];
+    price = price + items.sweet['croissants'];
   }
 
   output.innerText = parseInt(price);
